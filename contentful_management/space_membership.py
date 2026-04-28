@@ -29,13 +29,7 @@ class SpaceMembership(Resource):
         """
         Returns the JSON representation of the space membership.
         """
-
-        result = super(SpaceMembership, self).to_json()
-        result.update({
-            'admin': self.admin,
-            'roles': self.roles
-        })
-        return result
+        pass
 
     def __repr__(self):
         return "<SpaceMembership id='{0}' admin={1}>".format(

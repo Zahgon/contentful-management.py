@@ -29,15 +29,13 @@ class WebhookResourceProxy(object):
         """
         Gets all resources related to the current webhook.
         """
-
-        return self.proxy.all(query)
+        pass
 
     def find(self, resource_id, query=None):
         """
         Finds a single resource by ID related to the current webhook.
         """
-
-        return self.proxy.find(resource_id, query)
+        pass
 
     def create(self, resource_id=None, attributes=None):
         """

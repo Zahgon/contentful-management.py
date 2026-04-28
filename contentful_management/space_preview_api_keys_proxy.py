@@ -21,7 +21,7 @@ class SpacePreviewApiKeysProxy(SpaceResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return PreviewApiKeysProxy
+        pass
 
     def create(*args, **kwargs):
         """

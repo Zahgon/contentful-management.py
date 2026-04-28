@@ -51,50 +51,10 @@ class ResourceBuilder(object):
         """
         Creates the objects from the JSON response.
         """
-
-        if self.json['sys']['type'] == 'Array':
-            return self._build_array()
-        return self._build_item(self.json)
+        pass
 
     def _build_array(self):
-        return Array(self.json, [self._build_item(item) for item in self.json['items']])
+        pass
 
     def _build_item(self, item):
-        buildables = {
-            'Tag': Tag,
-            'Role': Role,
-            'User': User,
-            'Entry': Entry,
-            'Asset': Asset,
-            'Space': Space,
-            'Upload': Upload,
-            'ApiKey': ApiKey,
-            'Locale': Locale,
-            'Snapshot': Snapshot,
-            'Webhook': WebhookHealth,
-            'Extension': UIExtension,
-            'Environment': Environment,
-            'ContentType': ContentType,
-            'Organization': Organization,
-            'PreviewApiKey': PreviewApiKey,
-            'EditorInterface': EditorInterface,
-            'SpaceMembership': SpaceMembership,
-            'WebhookDefinition': Webhook,
-            'WebhookCallDetails': WebhookCall,
-            'SpacePeriodicUsage': SpacePeriodicUsage,
-            'WebhookCallOverview': WebhookCall,
-            'PersonalAccessToken': PersonalAccessToken,
-            'OrganizationPeriodicUsage': OrganizationPeriodicUsage,
-            'TaxonomyConcept': TaxonomyConcept,
-            'TaxonomyConceptScheme': TaxonomyConceptScheme
-        }
-
-        item_type = item['sys']['type']
-
-        if item_type in buildables:
-            return buildables[item_type](
-                item,
-                default_locale=self.default_locale,
-                client=self.client
-            )
-        raise Exception("Resource not buildable")
+        pass

@@ -24,7 +24,7 @@ class ContentTypeSnapshotsProxy(ContentTypeResourceProxy):
         self.proxy = self._resource_proxy_class()(client, space_id, environment_id, content_type_id, resource_kind='content_types')
 
     def _resource_proxy_class(self):
-        return SnapshotsProxy
+        pass
 
     def create(self, *args, **kwargs):
         """

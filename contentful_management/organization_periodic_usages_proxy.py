@@ -26,20 +26,13 @@ class OrganizationPeriodicUsagesProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return OrganizationPeriodicUsage
+        pass
 
     def all(self, query=None, *args, **kwargs):
         """
         Gets all organization periodic usage.
         """
-
-        if query is None:
-            query = {}
-
-        return self.client._get(
-            self._url(),
-            query
-        )
+        pass
 
     def create(self, file_or_path, **kwargs):
         """
@@ -63,7 +56,7 @@ class OrganizationPeriodicUsagesProxy(ClientProxy):
         raise Exception("Not supported")
 
     def _url(self):
-        return self._resource_class.base_url(self.organization_id)
+        pass
 
     def __repr__(self):
         return "<{0} organization_id='{1}'>".format(

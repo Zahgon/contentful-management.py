@@ -21,11 +21,10 @@ class WebhookWebhooksHealthProxy(WebhookResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return WebhooksHealthProxy
+        pass
 
     def find(self, *args, **kwargs):
         """
         Gets webhook health.
         """
-
-        return self.all()
+        pass

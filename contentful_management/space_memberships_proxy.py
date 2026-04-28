@@ -18,11 +18,10 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 class SpaceMembershipsProxy(ClientProxy):
     @property
     def _resource_class(self):
-        return SpaceMembership
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates a space membership with given attributes.
         """
-
-        return super(SpaceMembershipsProxy, self).create(None, attributes)
+        pass

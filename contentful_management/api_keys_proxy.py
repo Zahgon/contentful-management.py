@@ -18,11 +18,10 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 class ApiKeysProxy(ClientProxy):
     @property
     def _resource_class(self):
-        return ApiKey
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates an API key with given attributes.
         """
-
-        return super(ApiKeysProxy, self).create(None, attributes)
+        pass

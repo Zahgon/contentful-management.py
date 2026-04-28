@@ -26,28 +26,25 @@ class EditorInterfacesProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return EditorInterface
+        pass
 
     def all(self):
         """
         Gets the default editor interface.
         """
-
-        return super(EditorInterfacesProxy, self).all()
+        pass
 
     def find(self):
         """
         Gets the default editor interface.
         """
-
-        return self.all()
+        pass
 
     def default(self):
         """
         Gets the default editor interface.
         """
-
-        return self.all()
+        pass
 
     def create(self, *args, **kwargs):
         """
@@ -64,11 +61,7 @@ class EditorInterfacesProxy(ClientProxy):
         raise Exception("Not Supported")
 
     def _url(self, **kwargs):
-        return self._resource_class.base_url(
-            self.space_id,
-            self.content_type_id,
-            environment_id=self.environment_id
-        )
+        pass
 
     def __repr__(self):
         return "<{0} space_id='{1}' environment_id='{2}' content_type_id='{3}'>".format(

@@ -38,62 +38,27 @@ class ContentType(Resource, PublishResource, EnvironmentAwareResource):
         """
         Returns the URI for the content type.
         """
-
-        if public:
-            environment_slug = ""
-            if environment_id is not None:
-                environment_slug = "/environments/{0}".format(environment_id)
-            return "spaces/{0}{1}/public/content_types".format(space_id, environment_slug)
-        return super(ContentType, klass).base_url(
-            space_id,
-            resource_id=resource_id,
-            environment_id=environment_id,
-            **kwargs
-        )
+        pass
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
         """
         Attributes for content type creation.
         """
-
-        result = super(ContentType, klass).create_attributes(attributes, previous_object)
-
-        if 'fields' not in result:
-            result['fields'] = []
-        return result
+        pass
 
     @classmethod
     def update_attributes_map(klass):
         """
         Attributes for object mapping.
         """
-
-        return {
-            'name': '',
-            'description': '',
-            'display_field': '',
-            'fields': [],
-            'metadata': {}
-        }
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the content type.
         """
-
-        result = super(ContentType, self).to_json()
-        result.update({
-            'name': self.name,
-            'description': self.description,
-            'displayField': self.display_field,
-            'fields': [f.to_json() for f in self.fields]
-        })
-
-        if self.metadata and (self.metadata.taxonomy or self.metadata.raw):
-            result['metadata'] = self.metadata.to_json()
-
-        return result
+        pass
 
     def entries(self):
         """
@@ -109,7 +74,7 @@ class ContentType(Resource, PublishResource, EnvironmentAwareResource):
             >>> content_type_entries_proxy = content_type.entries()
             <ContentTypeEntriesProxy space_id="cfexampleapi" environment_id="master" content_type_id="cat">
         """
-        return ContentTypeEntriesProxy(self._client, self.space.id, self._environment_id, self.id)
+        pass
 
     def editor_interfaces(self):
         """
@@ -125,7 +90,7 @@ class ContentType(Resource, PublishResource, EnvironmentAwareResource):
             >>> content_type_editor_interfaces_proxy = content_type.editor_interfaces()
             <ContentTypeEditorInterfacesProxy space_id="cfexampleapi" environment_id="master" content_type_id="cat">
         """
-        return ContentTypeEditorInterfacesProxy(self._client, self.space.id, self._environment_id, self.id)
+        pass
 
     def snapshots(self):
         """
@@ -141,7 +106,7 @@ class ContentType(Resource, PublishResource, EnvironmentAwareResource):
             >>> content_type_snapshots_proxy = content_type.entries()
             <ContentTypeSnapshotsProxy space_id="cfexampleapi" environment_id="master" content_type_id="cat">
         """
-        return ContentTypeSnapshotsProxy(self._client, self.space.id, self._environment_id, self.id)
+        pass
 
     def __repr__(self):
         return "<ContentType[{0}] id='{1}'>".format(

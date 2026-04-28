@@ -29,11 +29,11 @@ class SpacePeriodicUsage(Resource):
         self.date_range = item.get('dateRange', None)
 
     def _linkables(self):
-        return super(SpacePeriodicUsage, self)._linkables() + ['organization']
+        pass
 
     @classmethod
     def base_url(klass, organization_id):
-        return "organizations/{0}/space_periodic_usages".format(organization_id)
+        pass
 
     def __repr__(self):
         return "<SpacePeriodicUsage id='{0}'>".format(

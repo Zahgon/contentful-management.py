@@ -23,7 +23,7 @@ class SnapshotsProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Snapshot
+        pass
 
     def create(*args, **kwargs):
         """
@@ -40,13 +40,7 @@ class SnapshotsProxy(ClientProxy):
         raise Exception("Not Supported")
 
     def _url(self, resource_id='', **kwargs):
-        return self._resource_class.base_url(
-            self.space_id,
-            self.parent_resource_id,
-            environment_id=self.environment_id,
-            resource_url=self.resource_kind,
-            resource_id=resource_id
-        )
+        pass
 
     def __repr__(self):
         return "<{0}[{1}] space_id='{2}' environment_id='{3}' parent_resource_id='{4}'>".format(

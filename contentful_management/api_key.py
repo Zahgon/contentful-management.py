@@ -35,51 +35,23 @@ class ApiKey(Resource):
         """
         Attributes for resource creation.
         """
-
-        return {
-            'name': attributes.get(
-                'name',
-                previous_object.name if previous_object is not None else ''
-            ),
-            'description': attributes.get(
-                'description',
-                previous_object.description if previous_object is not None else ''
-            ),
-            'environments': attributes.get(
-                'environments',
-                [e.to_json() for e in previous_object.environments] if previous_object is not None else []  # Will default to master if empty
-            )
-        }
+        pass
 
     @classmethod
     def update_attributes_map(klass):
         """
         Defines keys and default values for non-generic attributes.
         """
-
-        return {
-            'name': '',
-            'description': '',
-            'access_token': '',
-            'environments': []
-        }
+        pass
 
     def preview_api_key(self):
-        return self._preview_api_key.resolve(self.space.id)
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the API key.
         """
-
-        result = super(ApiKey, self).to_json()
-        result.update({
-            'name': self.name,
-            'description': self.description,
-            'accessToken': self.access_token,
-            'environments': [e.to_json() for e in self.environments]
-        })
-        return result
+        pass
 
     def __repr__(self):
         return "<ApiKey[{0}] id='{1}' access_token='{2}'>".format(

@@ -34,55 +34,23 @@ class ClientProxy(object):
         """
         Gets resource collection for _resource_class.
         """
-
-        if query is None:
-            query = {}
-        return self.client._get(
-            self._url(),
-            query
-        )
+        pass
 
     def find(self, resource_id, query=None, **kwargs):
         """Gets a single resource."""
-
-        if query is None:
-            query = {}
-        return self.client._get(
-            self._url(resource_id),
-            query,
-            **kwargs
-        )
+        pass
 
     def create(self, resource_id=None, attributes=None):
         """
         Creates a resource with the given ID (optional) and attributes.
         """
-
-        if attributes is None:
-            attributes = {}
-
-        result = None
-        if not resource_id:
-            result = self.client._post(
-                self._url(resource_id),
-                self._resource_class.create_attributes(attributes),
-                headers=self._resource_class.create_headers(attributes)
-            )
-        else:
-            result = self.client._put(
-                self._url(resource_id),
-                self._resource_class.create_attributes(attributes),
-                headers=self._resource_class.create_headers(attributes)
-            )
-
-        return result
+        pass
 
     def delete(self, resource_id, **kwargs):
         """
         Deletes a resource by ID.
         """
-
-        return self.client._delete(self._url(resource_id), **kwargs)
+        pass
 
     def _url(self, resource_id='', **kwargs):
-        return self._resource_class.base_url(self.space_id, resource_id=resource_id, environment_id=self.environment_id, **kwargs)
+        pass

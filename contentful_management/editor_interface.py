@@ -28,36 +28,23 @@ class EditorInterface(Resource, EnvironmentAwareResource):
         """
         Returns the URI for the editor interface.
         """
-
-        return "spaces/{0}{1}/content_types/{2}/editor_interface".format(
-            space_id,
-            '/environments/{0}'.format(environment_id) if environment_id is not None else '',
-            content_type_id
-        )
+        pass
 
     @classmethod
     def update_attributes_map(klass):
         """
         Attributes for object mapping.
         """
-
-        return {'controls': []}
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the editor interface.
         """
-
-        result = super(EditorInterface, self).to_json()
-        result.update({'controls': self.controls})
-        return result
+        pass
 
     def _update_url(self):
-        return self.__class__.base_url(
-            self.space.id,
-            self.content_type.id,
-            environment_id=self._environment_id
-        )
+        pass
 
     def __repr__(self):
         return "<EditorInterface id='{0}'>".format(

@@ -35,14 +35,11 @@ class PersonalAccessToken(Resource):
         """
         Returns the URI for the personal access token.
         """
-
-        return "users/me/access_tokens/{0}".format(
-            resource_id if resource_id is not None else ''
-        )
+        pass
 
     @property
     def is_revoked(self):
-        return bool(self.revoked_at)
+        pass
 
     def __repr__(self):
         return "<PersonalAccessToken[{0}] id='{1}' scopes=[{2}] revoked={3}>".format(

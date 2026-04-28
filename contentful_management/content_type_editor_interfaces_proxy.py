@@ -21,28 +21,25 @@ class ContentTypeEditorInterfacesProxy(ContentTypeResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return EditorInterfacesProxy
+        pass
 
     def all(self):
         """
         Gets the default editor interface.
         """
-
-        return self.proxy.all()
+        pass
 
     def find(self, *args, **kwargs):
         """
         Gets the default editor interface.
         """
-
-        return self.proxy.find()
+        pass
 
     def default(self):
         """
         Gets the default editor interface.
         """
-
-        return self.proxy.default()
+        pass
 
     def create(self, **kwargs):
         """

@@ -24,46 +24,19 @@ class HTTPError(Exception):
         super(HTTPError, self).__init__(message)
 
     def _default_error_message(self):
-        return "The following error was received: {0}".format(self.response.text)
+        pass
 
     def _handle_details(self, details):
-        return "{0}".format(details)
+        pass
 
     def _has_additional_error_info(self):
-        return False
+        pass
 
     def _additional_error_info(self):
-        return []
+        pass
 
     def _best_available_message(self, response):
-        from .utils import json_error_class
-
-        response_json = None
-        error_message = [
-          "HTTP status code: {0}".format(self.status_code),
-        ]
-        try:
-            response_json = response.json()
-
-            message = response_json.get('message', None)
-            details = response_json.get('details', None)
-            request_id = response_json.get('requestId', None)
-
-            if message is not None:
-                error_message.append("Message: {0}".format(message))
-            else:
-                error_message.append("Message: {0}".format(self._default_error_message()))
-            if details is not None:
-                error_message.append("Details: {0}".format(self._handle_details(details)))
-            if request_id is not None:
-                error_message.append("Request ID: {0}".format(request_id))
-        except json_error_class():
-            error_message.append("Message: {0}".format(self._default_error_message()))
-
-        if self._has_additional_error_info():
-            error_message += self._additional_error_info()
-
-        return "\n".join(error_message)
+        pass
 
 
 class BadRequestError(HTTPError):
@@ -72,24 +45,10 @@ class BadRequestError(HTTPError):
     """
 
     def _default_error_message(self):
-        return "The request was malformed or missing a required parameter."
+        pass
 
     def _handle_details(self, details):
-        from .utils import string_class
-        if isinstance(details, string_class()):
-            return details
-
-        def _handle_detail(detail):
-            if isinstance(detail, string_class()):
-                return detail
-            return detail.get('details', None)
-
-        if 'errors' in details:
-            inner_details = [_handle_detail(detail) for detail in details['errors']]
-            inner_details = [detail for detail in inner_details if detail is not None]  # This works in both Py2 and Py3
-            return "\n\t".join(inner_details)
-
-        return str(details)
+        pass
 
 
 class UnauthorizedError(HTTPError):
@@ -98,7 +57,7 @@ class UnauthorizedError(HTTPError):
     """
 
     def _default_error_message(self):
-        return "The authorization token was invalid."
+        pass
 
 
 class AccessDeniedError(HTTPError):
@@ -107,10 +66,10 @@ class AccessDeniedError(HTTPError):
     """
 
     def _default_error_message(self):
-        return "The specified token does not have access to the requested resource."
+        pass
 
     def _handle_details(self, details):
-        return "\n\tReasons:\n\t\t{0}".format("\n\t\t".join(details['reasons']))
+        pass
 
 
 class NotFoundError(HTTPError):
@@ -119,19 +78,10 @@ class NotFoundError(HTTPError):
     """
 
     def _default_error_message(self):
-        return "The requested resource or endpoint could not be found."
+        pass
 
     def _handle_details(self, details):
-        from .utils import string_class
-        if isinstance(details, string_class()):
-            return details
-
-        message = "The requested {0} could not be found.".format(details['type'])
-        resource_id = details.get('id', None)
-        if resource_id is not None:
-            message += " ID: {0}.".format(resource_id)
-
-        return message
+        pass
 
 
 class VersionMismatchError(HTTPError):
@@ -139,7 +89,7 @@ class VersionMismatchError(HTTPError):
     409
     """
     def _default_error_message(self):
-        return 'Version mismatch error. The version you specified was incorrect. This may be due to someone else editing the content.'
+        pass
 
 
 class UnprocessableEntityError(HTTPError):
@@ -147,33 +97,13 @@ class UnprocessableEntityError(HTTPError):
     422
     """
     def _default_error_message(self):
-        return 'The resource you sent in the body is invalid.'
+        pass
 
     def _handle_error(self, error):
-        message = ''
-        if 'name' in error and 'path' in error:
-            message = "\t* Name: {0} - Path: '{1}'".format(
-                error['name'],
-                error['path']
-            )
-        else:
-            message = self._default_error_message()
-
-        if 'value' in error:
-            message = "{0} - Value: '{1}'".format(
-                message,
-                error['value']
-            )
-
-        return message
+        pass
 
     def _handle_details(self, details):
-        errors = []
-
-        for error in details['errors']:
-            errors.append(self._handle_error(error))
-
-        return '\n{0}'.format('\n'.join(errors))
+        pass
 
 
 class RateLimitExceededError(HTTPError):
@@ -184,23 +114,20 @@ class RateLimitExceededError(HTTPError):
     RATE_LIMIT_RESET_HEADER_KEY = 'x-contentful-ratelimit-reset'
 
     def _has_reset_time(self):
-        return self.RATE_LIMIT_RESET_HEADER_KEY in self.response.headers
+        pass
 
     def reset_time(self):
         """Returns the reset time in seconds until next available request."""
-
-        return int(self.response.headers[
-            self.RATE_LIMIT_RESET_HEADER_KEY
-        ])
+        pass
 
     def _has_additional_error_info(self):
-        return self._has_reset_time()
+        pass
 
     def _additional_error_info(self):
-        return ["Time until reset (seconds): {0}".format(self.reset_time())]
+        pass
 
     def _default_error_message(self):
-        return "Rate limit exceeded. Too many requests."
+        pass
 
 
 class ServerError(HTTPError):
@@ -209,7 +136,7 @@ class ServerError(HTTPError):
     """
 
     def _default_error_message(self):
-        return "Internal server error."
+        pass
 
 
 class BadGatewayError(HTTPError):
@@ -218,7 +145,7 @@ class BadGatewayError(HTTPError):
     """
 
     def _default_error_message(self):
-        return "The requested space is hibernated."
+        pass
 
 
 class ServiceUnavailableError(HTTPError):
@@ -227,7 +154,7 @@ class ServiceUnavailableError(HTTPError):
     """
 
     def _default_error_message(self):
-        return "The request was malformed or missing a required parameter."
+        pass
 
 
 def get_error(response):

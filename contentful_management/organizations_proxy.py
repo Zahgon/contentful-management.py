@@ -28,14 +28,13 @@ class OrganizationsProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Organization
+        pass
 
     def all(self, query=None, **kwargs):
         """
         Gets all organizations.
         """
-
-        return super(OrganizationsProxy, self).all(query=query)
+        pass
 
     def find(self, organization_id, query=None, **kwargs):
         """

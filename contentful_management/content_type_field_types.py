@@ -29,8 +29,7 @@ class BasicField(object):
         """
         Just returns the value.
         """
-
-        return value
+        pass
 
     def __repr__(self):
         return "<{0}>".format(
@@ -47,8 +46,7 @@ class SymbolField(BasicField):
         """
         Coerces value to str.
         """
-
-        return unicode_class()(value)
+        pass
 
 
 class TextField(SymbolField):
@@ -67,8 +65,7 @@ class IntegerField(BasicField):
         """
         Coerces value to int.
         """
-
-        return int(value) if value is not None else None
+        pass
 
 
 class NumberField(BasicField):
@@ -80,8 +77,7 @@ class NumberField(BasicField):
         """
         Coerces value to float.
         """
-
-        return float(value) if value is not None else None
+        pass
 
 
 class DateField(BasicField):
@@ -93,8 +89,7 @@ class DateField(BasicField):
         """
         Coerces ISO8601 date to :class:`datetime.datetime` object.
         """
-
-        return dateutil.parser.parse(value)
+        pass
 
 
 class BooleanField(BasicField):
@@ -106,8 +101,7 @@ class BooleanField(BasicField):
         """
         Coerces value to boolean.
         """
-
-        return bool(value)
+        pass
 
 
 class LinkField(BasicField):
@@ -136,14 +130,10 @@ class ArrayField(BasicField):
         """
         Coerces array items with proper coercion.
         """
-
-        result = []
-        for v in value:
-            result.append(self._coercion.coerce(v))
-        return result
+        pass
 
     def _get_coercion(self):
-        return globals()["{0}Field".format(self._items.get('type'))]()
+        pass
 
 
 class ObjectField(BasicField):
@@ -155,8 +145,7 @@ class ObjectField(BasicField):
         """
         Coerces value to JSON.
         """
-
-        return json.loads(json.dumps(value))
+        pass
 
 
 class LocationField(BasicField):
@@ -168,11 +157,7 @@ class LocationField(BasicField):
         """
         Coerces value to location hash.
         """
-
-        return {
-            'lat': float(value.get('lat', value.get('latitude'))),
-            'lon': float(value.get('lon', value.get('longitude')))
-        }
+        pass
 
 
 class RichTextField(BasicField):
@@ -185,8 +170,7 @@ class RichTextField(BasicField):
         Returns the rich text object as is.
         Include resolution and other particular processing is done for CDA only.
         """
-
-        return value
+        pass
 
 
 class ResourceLinkField(BasicField):

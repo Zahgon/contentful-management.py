@@ -29,11 +29,7 @@ class ContentTypeFieldValidation(object):
         """
         Returns the JSON Representation of the content type field validation.
         """
-
-        result = {}
-        for k, v in self._data.items():
-            result[camel_case(k)] = v
-        return result
+        pass
 
     def __getattr__(self, name):
         if name in self._data:

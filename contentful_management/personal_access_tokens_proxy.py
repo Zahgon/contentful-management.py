@@ -27,32 +27,23 @@ class PersonalAccessTokensProxy(ClientProxy):
         return "<PersonalAccessTokensProxy>"
 
     def _url(self, resource_id='', **kwargs):
-        return self._resource_class.base_url(resource_id=resource_id, **kwargs)
+        pass
 
     @property
     def _resource_class(self):
-        return PersonalAccessToken
+        pass
 
     def create(self, attributes):
-        return super(PersonalAccessTokensProxy, self).create(None, attributes)
+        pass
 
     def delete(self, token_id, *args, **kwargs):
         """
         Revokes a personal access token.
         """
-
-        return self.client._put(
-            "{0}/revoked".format(
-                self._url(token_id)
-            ),
-            None,
-            *args,
-            **kwargs
-        )
+        pass
 
     def revoke(self, token_id, *args, **kwargs):
         """
         Revokes a personal access token.
         """
-
-        return self.delete(token_id, *args, **kwargs)
+        pass

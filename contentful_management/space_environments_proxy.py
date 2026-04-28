@@ -20,4 +20,4 @@ class SpaceEnvironmentsProxy(SpaceResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return EnvironmentsProxy
+        pass

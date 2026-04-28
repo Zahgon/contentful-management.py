@@ -22,11 +22,10 @@ class RolesProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Role
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates a role with given attributes.
         """
-
-        return super(RolesProxy, self).create(None, attributes)
+        pass

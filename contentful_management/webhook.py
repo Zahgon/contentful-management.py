@@ -36,28 +36,14 @@ class Webhook(Resource):
         """
         Defines keys and default values for non-generic attributes.
         """
-
-        return {
-            'name': '',
-            'url': '',
-            'topics': [],
-            'http_basic_username': '',
-            'headers': [],
-            'filters': [],
-            'transformation': {}
-        }
+        pass
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
         """
         Attributes for webhook creation.
         """
-
-        result = super(Webhook, klass).create_attributes(attributes, previous_object)
-
-        if 'topics' not in result:
-            raise Exception("Topics ('topics') must be provided for this operation.")
-        return result
+        pass
 
     def calls(self):
         """
@@ -73,7 +59,7 @@ class Webhook(Resource):
             >>> webhook_webhooks_call_proxy = webhook.calls()
             <WebhookWebhooksCallProxy space_id="cfexampleapi" webhook_id="my_webhook">
         """
-        return WebhookWebhooksCallProxy(self._client, self.sys['space'].id, self.sys['id'])
+        pass
 
     def health(self):
         """
@@ -89,29 +75,13 @@ class Webhook(Resource):
             >>> webhook_webhooks_health_proxy = webhook.health()
             <WebhookWebhooksHealthProxy space_id="cfexampleapi" webhook_id="my_webhook">
         """
-        return WebhookWebhooksHealthProxy(self._client, self.sys['space'].id, self.sys['id'])
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the webhook.
         """
-
-        result = super(Webhook, self).to_json()
-        result.update({
-            'name': self.name,
-            'url': self.url,
-            'topics': self.topics,
-            'httpBasicUsername': self.http_basic_username,
-            'headers': self.headers
-        })
-
-        if self.filters:
-            result.update({'filters': self.filters})
-
-        if self.transformation:
-            result.update({'transformation': self.transformation})
-
-        return result
+        pass
 
     def __repr__(self):
         return "<Webhook[{0}] id='{1}'>".format(

@@ -21,4 +21,4 @@ class EnvironmentContentTypesProxy(EnvironmentResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return ContentTypesProxy
+        pass

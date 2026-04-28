@@ -42,9 +42,7 @@ def unicode_class():
 def string_class():
     """Returns the parent class for strings
     depends on the Python version."""
-    if sys.version_info[0] >= 3:
-        return str
-    return basestring # noqa: F821
+    pass
 
 
 def json_error_class():
@@ -218,25 +216,5 @@ class retry_request(object):
 
     def __call__(self, http_call):
         def wrapper(url, query=None, **kwargs):
-            exception = None
-            for i in range(self.client.max_rate_limit_retries + 1):
-                try:
-                    return http_call(url, query, **kwargs)
-                except RateLimitExceededError as error:
-                    exception = error
-                    reset_time = error.reset_time()
-
-                    if reset_time > self.client.max_rate_limit_wait:
-                        raise error
-
-                    retry_message = 'Contentful API Rate Limit Hit! '
-                    retry_message += "Retrying - Retries left: {0} ".format(
-                        self.client.max_rate_limit_retries - i
-                    )
-                    retry_message += "- Time until reset (seconds): {0}".format(
-                        reset_time
-                    )
-                    log.debug(retry_message)
-                    time.sleep(reset_time * uniform(1.0, 1.2))
-            raise exception
+            pass
         return wrapper

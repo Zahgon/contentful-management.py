@@ -21,4 +21,4 @@ class ContentTypeEntriesProxy(ContentTypeResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return EntriesProxy
+        pass

@@ -22,11 +22,10 @@ class LocalesProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Locale
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates a locale with given attributes.
         """
-
-        return super(LocalesProxy, self).create(None, attributes)
+        pass

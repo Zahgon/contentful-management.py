@@ -21,4 +21,4 @@ class EnvironmentEntriesProxy(EnvironmentResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return EntriesProxy
+        pass

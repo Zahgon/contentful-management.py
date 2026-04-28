@@ -34,15 +34,7 @@ class User(Resource):
         """
         Returns the URI for the user.
         """
-
-        if space_id is not None:
-            url = "spaces/{0}/users/{1}".format(space_id, resource_id)
-        elif organization_id is not None:
-            url = "organizations/{0}/users/{1}".format(organization_id, resource_id)
-        else:
-            url = "users/me"
-
-        return url
+        pass
 
     def __repr__(self):
         return "<User[{0} {1}] email='{2}' activated={3} confirmed={4} sign_in_count={5}>".format(

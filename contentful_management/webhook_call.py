@@ -43,12 +43,7 @@ class WebhookCall(Resource):
         """
         Returns the URI for the webhook call.
         """
-
-        return "spaces/{0}/webhooks/{1}/calls/{2}".format(
-            space_id,
-            webhook_id,
-            resource_id if resource_id is not None else ''
-        )
+        pass
 
     def __repr__(self):
         return "<WebhookCall[{0}] id='{1}' url='{2}' request_at='{3}' response_at='{4}'>".format(

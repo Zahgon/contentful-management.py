@@ -20,7 +20,7 @@ class EntrySnapshotsProxy(EntryResourceProxy):
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
     """
     def _resource_proxy_class(self):
-        return SnapshotsProxy
+        pass
 
     def create(self, *args, **kwargs):
         """

@@ -21,7 +21,7 @@ class UsersProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return User
+        pass
 
     def create(self, *args, **kwargs):
         """
@@ -48,11 +48,10 @@ class UsersProxy(ClientProxy):
         """
         Returns the current user information.
         """
-
-        return self.client._get(self._url())
+        pass
 
     def _url(self, resource_id=None, **kwargs):
-        return self._resource_class.base_url(space_id=self.space_id, resource_id=resource_id, **kwargs)
+        pass
 
     def __repr__(self):
         return "<{0}>".format(

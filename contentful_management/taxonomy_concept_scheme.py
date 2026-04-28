@@ -20,43 +20,13 @@ class TaxonomyConceptScheme(Resource):
         """
         Attributes for taxonomy concept scheme creation.
         """
-        if previous_object is not None:
-            attributes_map = {
-                'uri': attributes.get('uri', previous_object.uri),
-                'prefLabel': attributes.get('prefLabel', previous_object.pref_label),
-                'definition': attributes.get('definition', previous_object.definition),
-                'topConcepts': attributes.get('topConcepts', previous_object.top_concepts),
-                'concepts': attributes.get('concepts', previous_object.concepts)
-            }
-        else:
-            attributes_map = {
-                'uri': attributes.get('uri', ''),
-                'prefLabel': attributes.get('prefLabel', {}),
-                'definition': attributes.get('definition', {}),
-                'topConcepts': attributes.get('topConcepts', []),
-                'concepts': attributes.get('concepts', [])
-            }
-
-        if 'uri' in attributes_map and not attributes_map['uri']:
-            del attributes_map['uri']
-
-        return attributes_map
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the taxonomy concept scheme.
         """
-
-        result = super(TaxonomyConceptScheme, self).to_json()
-        result.update({
-            'uri': self.uri,
-            'prefLabel': self.pref_label,
-            'definition': self.definition,
-            'topConcepts': self.top_concepts,
-            'concepts': self.concepts,
-            'totalConcepts': self.total_concepts
-        })
-        return result
+        pass
 
     def __repr__(self):
         return f"<TaxonomyConceptScheme id='{self.sys.get('id', '')}'>"

@@ -30,26 +30,22 @@ class ContentTypeResourceProxy(object):
         """
         Gets all resources related to the current content type.
         """
-
-        return self.proxy.all(query)
+        pass
 
     def find(self, resource_id, query=None):
         """
         Finds a single resource by ID related to the current content type.
         """
-
-        return self.proxy.find(resource_id, query)
+        pass
 
     def create(self, resource_id=None, attributes=None):
         """
         Creates a resource with a given ID (optional) and attributes for the current content type.
         """
-
-        return self.proxy.create(resource_id=resource_id, attributes=attributes)
+        pass
 
     def delete(self, resource_id):
         """
         Deletes a resource by ID.
         """
-
-        return self.proxy.delete(resource_id)
+        pass

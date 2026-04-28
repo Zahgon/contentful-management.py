@@ -152,8 +152,7 @@ class Client(object):
             >>> spaces_proxy = client.spaces()
             <SpacesProxy>
         """
-
-        return SpacesProxy(self)
+        pass
 
     def memberships(self, space_id):
         """
@@ -169,8 +168,7 @@ class Client(object):
             >>> space_memberships_proxy = client.memberships('cfexampleapi')
             <SpaceMembershipsProxy space_id="cfexampleapi">
         """
-
-        return SpaceMembershipsProxy(self, space_id)
+        pass
 
     def organizations(self):
         """
@@ -186,8 +184,7 @@ class Client(object):
             >>> organizations_proxy = client.organizations()
             <OrganizationsProxy>
         """
-
-        return OrganizationsProxy(self)
+        pass
 
     def organization_periodic_usages(self, organization_id):
         """
@@ -203,8 +200,7 @@ class Client(object):
             >>> organization_periodic_usages = client.organization_periodic_usages('organization_id')
             <OrganizationPeriodicUsagesProxy organization_id='organization_id'>
         """
-
-        return OrganizationPeriodicUsagesProxy(self, organization_id)
+        pass
 
     def space_periodic_usages(self, organization_id):
         """
@@ -220,8 +216,7 @@ class Client(object):
             >>> space_periodic_usages = client.space_periodic_usages('organization_id')
             <SpacePeriodicUsagesProxy organization_id='organization_id'>
         """
-
-        return SpacePeriodicUsagesProxy(self, organization_id)
+        pass
 
     def users(self):
         """
@@ -237,8 +232,7 @@ class Client(object):
             >>> users_proxy = client.users()
             <UsersProxy>
         """
-
-        return UsersProxy(self)
+        pass
 
     def content_types(self, space_id, environment_id):
         """
@@ -254,8 +248,7 @@ class Client(object):
             >>> content_types_proxy = client.content_types('cfexampleapi', 'master')
             <ContentTypesProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return ContentTypesProxy(self, space_id, environment_id)
+        pass
 
     def entries(self, space_id, environment_id):
         """
@@ -271,8 +264,7 @@ class Client(object):
             >>> entries_proxy = client.entries('cfexampleapi', 'master')
             <EntriesProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return EntriesProxy(self, space_id, environment_id)
+        pass
 
     def assets(self, space_id, environment_id):
         """
@@ -288,8 +280,7 @@ class Client(object):
             >>> assets_proxy = client.assets('cfexampleapi', 'master')
             <AssetsProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return AssetsProxy(self, space_id, environment_id)
+        pass
 
     def locales(self, space_id, environment_id):
         """
@@ -305,8 +296,7 @@ class Client(object):
             >>> locales_proxy = client.locales('cfexampleapi', 'master')
             <LocalesProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return LocalesProxy(self, space_id, environment_id)
+        pass
 
     def webhooks(self, space_id):
         """
@@ -322,8 +312,7 @@ class Client(object):
             >>> webhooks_proxy = client.webhooks('cfexampleapi')
             <WebhooksProxy space_id="cfexampleapi">
         """
-
-        return WebhooksProxy(self, space_id)
+        pass
 
     def webhook_calls(self, space_id, webhook_id):
         """
@@ -339,8 +328,7 @@ class Client(object):
             >>> webhooks_call_proxy = client.webhook_calls('cfexampleapi', 'my_webhook')
             <WebhooksCallProxy space_id="cfexampleapi" webhook_id="my_webhook">
         """
-
-        return WebhooksCallProxy(self, space_id, webhook_id)
+        pass
 
     def webhook_health(self, space_id, webhook_id):
         """
@@ -356,8 +344,7 @@ class Client(object):
             >>> webhooks_health_proxy = client.webhook_calls('cfexampleapi', 'my_webhook')
             <WebhooksHealthProxy space_id="cfexampleapi" webhook_id="my_webhook">
         """
-
-        return WebhooksHealthProxy(self, space_id, webhook_id)
+        pass
 
     def api_keys(self, space_id):
         """
@@ -373,8 +360,7 @@ class Client(object):
             >>> api_keys_proxy = client.api_keys('cfexampleapi')
             <ApiKeysProxy space_id="cfexampleapi">
         """
-
-        return ApiKeysProxy(self, space_id)
+        pass
 
     def preview_api_keys(self, space_id):
         """
@@ -390,8 +376,7 @@ class Client(object):
             >>> preview_api_keys_proxy = client.preview_api_keys('cfexampleapi')
             <PreviewApiKeysProxy space_id="cfexampleapi">
         """
-
-        return PreviewApiKeysProxy(self, space_id)
+        pass
 
     def personal_access_tokens(self):
         """
@@ -407,8 +392,7 @@ class Client(object):
             >>> personal_access_tokens_proxy = client.personal_access_tokens()
             <PersonalAccessTokensProxy>
         """
-
-        return PersonalAccessTokensProxy(self)
+        pass
 
     def roles(self, space_id):
         """
@@ -424,8 +408,7 @@ class Client(object):
             >>> roles_proxy = client.roles('cfexampleapi')
             <RolesProxy space_id="cfexampleapi">
         """
-
-        return RolesProxy(self, space_id)
+        pass
 
     def ui_extensions(self, space_id, environment_id):
         """
@@ -441,8 +424,7 @@ class Client(object):
             >>> ui_extensions_proxy = client.ui_extensions('cfexampleapi', 'master')
             <UIExtensionsProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return UIExtensionsProxy(self, space_id, environment_id)
+        pass
 
     def editor_interfaces(self, space_id, environment_id, content_type_id):
         """
@@ -458,8 +440,7 @@ class Client(object):
             >>> editor_interfaces_proxy = client.editor_interfaces('cfexampleapi', 'master', 'cat')
             <EditorInterfacesProxy space_id="cfexampleapi" environment_id="master" content_type_id="cat">
         """
-
-        return EditorInterfacesProxy(self, space_id, environment_id, content_type_id)
+        pass
 
     def snapshots(self, space_id, environment_id, resource_id, resource_kind='entries'):
         """
@@ -478,8 +459,7 @@ class Client(object):
             >>> content_type_snapshots_proxy = client.snapshots('cfexampleapi', 'master', 'cat', 'content_types')
             <SnapshotsProxy[content_types] space_id="cfexampleapi" environment_id="master" parent_resource_id="cat">
         """
-
-        return SnapshotsProxy(self, space_id, environment_id, resource_id, resource_kind)
+        pass
 
     def entry_snapshots(self, space_id, environment_id, entry_id):
         """
@@ -495,8 +475,7 @@ class Client(object):
             >>> entry_snapshots_proxy = client.entry_snapshots('cfexampleapi', 'master', 'nyancat')
             <SnapshotsProxy[entries] space_id="cfexampleapi" environment_id="master" parent_resource_id="nyancat">
         """
-
-        return SnapshotsProxy(self, space_id, environment_id, entry_id, 'entries')
+        pass
 
     def content_type_snapshots(self, space_id, environment_id, content_type_id):
         """
@@ -512,8 +491,7 @@ class Client(object):
             >>> content_type_snapshots_proxy = client.content_type_snapshots('cfexampleapi', 'master', 'cat')
             <SnapshotsProxy[content_types] space_id="cfexampleapi" environment_id="master" parent_resource_id="cat">
         """
-
-        return SnapshotsProxy(self, space_id, environment_id, content_type_id, 'content_types')
+        pass
 
     def uploads(self, space_id):
         """
@@ -529,8 +507,7 @@ class Client(object):
             >>> uploads_proxy = client.uploads('cfexampleapi')
             <UploadsProxy space_id="cfexampleapi">
         """
-
-        return UploadsProxy(self, space_id)
+        pass
 
     def environments(self, space_id):
         """
@@ -546,8 +523,7 @@ class Client(object):
             >>> environments_proxy = client.environments('cfexampleapi')
             <EnvironmentsProxy space_id="cfexampleapi">
         """
-
-        return EnvironmentsProxy(self, space_id)
+        pass
 
     def tags(self, space_id, environment_id):
         """
@@ -562,8 +538,7 @@ class Client(object):
             >>> tags_proxy = client.tags('cfexampleapi', 'master')
             <TagsProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return TagsProxy(self, space_id, environment_id)
+        pass
 
     def taxonomy_concepts(self, organization_id):
         """
@@ -581,7 +556,7 @@ class Client(object):
             >>> taxonomy_concepts_proxy = client.taxonomy_concepts('organization_id')
             <TaxonomyConceptsProxy organization_id="organization_id">
         """
-        return TaxonomyConceptsProxy(self, organization_id)
+        pass
 
     def taxonomy_concept_schemes(self, organization_id):
         """
@@ -599,205 +574,74 @@ class Client(object):
             >>> taxonomy_concept_schemes_proxy = client.taxonomy_concept_schemes('organization_id')
             <TaxonomyConceptSchemesProxy organization_id="organization_id">
         """
-        return TaxonomyConceptSchemesProxy(self, organization_id)
+        pass
 
     def _validate_configuration(self):
         """
         Validates that required parameters are present.
         """
-
-        if not self.access_token:
-            raise ConfigurationException(
-                'You will need to initialize a client with an Access Token'
-            )
-        if not self.api_url:
-            raise ConfigurationException(
-                'The client configuration needs to contain an API URL'
-            )
-        if not self.default_locale:
-            raise ConfigurationException(
-                'The client configuration needs to contain a Default Locale'
-            )
-        if not self.api_version or self.api_version < 1:
-            raise ConfigurationException(
-                'The API Version must be a positive number'
-            )
+        pass
 
     def _contentful_user_agent(self):
         """
         Sets the X-Contentful-User-Agent header.
         """
-        header = {}
-        from . import __version__
-        header['sdk'] = {
-            'name': 'contentful-management.py',
-            'version': __version__
-        }
-        header['app'] = {
-            'name': self.application_name,
-            'version': self.application_version
-        }
-        header['integration'] = {
-            'name': self.integration_name,
-            'version': self.integration_version
-        }
-        header['platform'] = {
-            'name': 'python',
-            'version': platform.python_version()
-        }
-
-        os_name = platform.system()
-        if os_name == 'Darwin':
-            os_name = 'macOS'
-        elif not os_name or os_name == 'Java':
-            os_name = None
-        elif os_name and os_name not in ['macOS', 'Windows']:
-            os_name = 'Linux'
-        header['os'] = {
-            'name': os_name,
-            'version': platform.release()
-        }
-
-        def format_header(key, values):
-            header = "{0} {1}".format(key, values['name'])
-            if values['version'] is not None:
-                header = "{0}/{1}".format(header, values['version'])
-            return "{0};".format(header)
-
-        result = []
-        for k, values in header.items():
-            if not values['name']:
-                continue
-            result.append(format_header(k, values))
-
-        return ' '.join(result)
+        pass
 
     def _request_headers(self):
         """
         Sets the default request headers.
         """
-
-        headers = {
-            'X-Contentful-User-Agent': self._contentful_user_agent(),
-            'Content-Type':
-                'application/vnd.contentful.management.v{0}+json'.format(
-                    self.api_version
-                ),
-            'Authorization': 'Bearer {0}'.format(self.access_token)
-        }
-
-        if self.gzip_encoded:
-            headers['Accept-Encoding'] = 'gzip'
-        else:
-            headers['Accept-Encoding'] = 'identity'
-
-        return headers
+        pass
 
     def _url(self, url, file_upload=False):
         """
         Creates the request URL.
         """
-
-        host = self.api_url
-        if file_upload:
-            host = self.uploads_api_url
-
-        protocol = 'https' if self.https else 'http'
-        if url.endswith('/'):
-            url = url[:-1]
-        return '{0}://{1}/{2}'.format(
-            protocol,
-            host,
-            url
-        )
+        pass
 
     def _normalize_query(self, query):
         """
         Converts arrays in the query to comma
         separated lists for proper API handling.
         """
-
-        for k, v in query.items():
-            if isinstance(v, list):
-                query[k] = ','.join(v)
+        pass
 
     def _http_request(self, method, url, request_kwargs=None):
         """
         Performs the requested HTTP request.
         """
-
-        kwargs = request_kwargs if request_kwargs is not None else {}
-
-        headers = self._request_headers()
-        headers.update(self.additional_headers)
-        if 'headers' in kwargs:
-            headers.update(kwargs['headers'])
-        kwargs['headers'] = headers
-
-        if self._has_proxy():
-            kwargs['proxies'] = self._proxy_parameters()
-
-        request_url = self._url(
-            url,
-            file_upload=kwargs.pop('file_upload', False)
-        )
-
-        request_method = getattr(requests, method)
-        response = request_method(request_url, **kwargs)
-        response.encoding = 'utf-8'
-
-        if response.status_code == 429:
-            raise RateLimitExceededError(response)
-
-        return response
+        pass
 
     def _http_get(self, url, query, **kwargs):
         """
         Performs the HTTP GET request.
         """
-
-        self._normalize_query(query)
-
-        kwargs.update({'params': query})
-
-        return self._http_request('get', url, kwargs)
+        pass
 
     def _http_post(self, url, data, **kwargs):
         """
         Performs the HTTP POST request.
         """
-
-        if not kwargs.get('file_upload', False):
-            data = json.dumps(data)
-
-        kwargs.update({'data': data})
-
-        return self._http_request('post', url, kwargs)
+        pass
 
     def _http_put(self, url, data, **kwargs):
         """
         Performs the HTTP PUT request.
         """
-
-        kwargs.update({'data': json.dumps(data)})
-
-        return self._http_request('put', url, kwargs)
+        pass
 
     def _http_patch(self, url, data, **kwargs):
         """
         Performs the HTTP PATCH request.
         """
-
-        kwargs.update({'data': json.dumps(data)})
-
-        return self._http_request('patch', url, kwargs)
+        pass
 
     def _http_delete(self, url, _data, **kwargs):
         """
         Performs the HTTP DELETE request.
         """
-
-        return self._http_request('delete', url, kwargs)
+        pass
 
     def _request(self, method, url, query_or_data=None, **kwargs):
         """
@@ -805,110 +649,50 @@ class Client(object):
         rate limit backoff is handled here,
         responses are processed with ResourceBuilder.
         """
-
-        if query_or_data is None:
-            query_or_data = {}
-
-        request_method = getattr(self, '_http_{0}'.format(method))
-        response = retry_request(self)(request_method)(url, query_or_data, **kwargs)
-
-        if self.raw_mode:
-            return response
-
-        if response.status_code >= 300:
-            error = get_error(response)
-            if self.raise_errors:
-                raise error
-            return error
-
-        # Return response object on NoContent
-        if response.status_code == 204 or not response.text:
-            return response
-
-        return ResourceBuilder(
-            self,
-            self.default_locale,
-            response.json()
-        ).build()
+        pass
 
     def _get(self, url, query=None, **kwargs):
         """
         Wrapper for the HTTP GET request.
         """
-
-        return self._request('get', url, query, **kwargs)
+        pass
 
     def _post(self, url, attributes=None, **kwargs):
         """
         Wrapper for the HTTP POST request.
         """
-
-        return self._request('post', url, attributes, **kwargs)
+        pass
 
     def _put(self, url, attributes=None, **kwargs):
         """
         Wrapper for the HTTP PUT request.
         """
-
-        return self._request('put', url, attributes, **kwargs)
+        pass
 
     def _patch(self, url, attributes=None, **kwargs):
         """
         Wrapper for the HTTP PATCH request.
         """
-
-        return self._request('patch', url, attributes, **kwargs)
+        pass
 
     def _delete(self, url, **kwargs):
         """
         Wrapper for the HTTP DELETE request.
         """
-
-        response = retry_request(self)(self._http_delete)(url, **kwargs)
-
-        if self.raw_mode:
-            return response
-
-        if response.status_code >= 300:
-            error = get_error(response)
-            if self.raise_errors:
-                raise error
-            return error
-
-        return response
+        pass
 
     def _has_proxy(self):
         """
         Checks if a proxy was set.
         """
-
-        return self.proxy_host
+        pass
 
     def _proxy_parameters(self):
         """
         Builds proxy parameters dict from
         client options.
         """
-
-        proxy_protocol = ''
-        if self.proxy_host.startswith('https'):
-            proxy_protocol = 'https'
-        else:
-            proxy_protocol = 'http'
-
-        proxy = '{0}://'.format(proxy_protocol)
-        if self.proxy_username and self.proxy_password:
-            proxy += '{0}:{1}@'.format(self.proxy_username, self.proxy_password)
-
-        proxy += sub(r'https?(://)?', '', self.proxy_host)
-
-        if self.proxy_port:
-            proxy += ':{0}'.format(self.proxy_port)
-
-        return {
-            'http': proxy,
-            'https': proxy
-        }
+        pass
 
     def __repr__(self):
         return "<contentful_management.Client access_token='{0}' default_locale='{1}'>".format(  # noqa: E501

@@ -22,4 +22,4 @@ class UIExtensionsProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return UIExtension
+        pass

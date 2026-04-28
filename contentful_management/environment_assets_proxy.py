@@ -21,4 +21,4 @@ class EnvironmentAssetsProxy(EnvironmentResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return AssetsProxy
+        pass

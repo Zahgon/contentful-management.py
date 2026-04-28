@@ -34,32 +34,13 @@ class Locale(Resource, EnvironmentAwareResource):
         """
         Attributes for object mapping.
         """
-
-        return {
-            'code': '',
-            'name': '',
-            'fallback_code': '',
-            'default': False,
-            'optional': True,
-            'content_delivery_api': True,
-            'content_management_api': True
-        }
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the locale.
         """
-
-        result = super(Locale, self).to_json()
-        result.update({
-            'code': self.code,
-            'name': self.name,
-            'fallbackCode': self.fallback_code,
-            'optional': self.optional,
-            'contentDeliveryApi': self.content_delivery_api,
-            'contentManagementApi': self.content_management_api
-        })
-        return result
+        pass
 
     def __repr__(self):
         return "<Locale[{0}] code='{1}' default={2}>".format(

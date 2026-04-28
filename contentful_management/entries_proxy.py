@@ -27,46 +27,22 @@ class EntriesProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Entry
+        pass
 
     def all(self, query=None):
         """
         Gets all entries of a space.
         """
-
-        if query is None:
-            query = {}
-
-        if self.content_type_id is not None:
-            query['content_type'] = self.content_type_id
-
-        normalize_select(query)
-
-        return super(EntriesProxy, self).all(query=query)
+        pass
 
     def find(self, entry_id, query=None):
         """
         Gets a single entry by ID.
         """
-
-        if query is None:
-            query = {}
-
-        if self.content_type_id is not None:
-            query['content_type'] = self.content_type_id
-
-        normalize_select(query)
-
-        return super(EntriesProxy, self).find(entry_id, query=query)
+        pass
 
     def create(self, resource_id=None, attributes=None, **kwargs):
         """
         Creates an entry with a given ID (optional) and attributes.
         """
-
-        if self.content_type_id is not None:
-            if attributes is None:
-                attributes = {}
-            attributes['content_type_id'] = self.content_type_id
-
-        return super(EntriesProxy, self).create(resource_id=resource_id, attributes=attributes)
+        pass

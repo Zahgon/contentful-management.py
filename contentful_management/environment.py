@@ -32,38 +32,27 @@ class Environment(Resource):
         """
         Returns the URI for the environment.
         """
-
-        return "spaces/{0}/environments/{1}".format(space_id, resource_id)
+        pass
 
     @classmethod
     def create_headers(klass, attributes):
         """
         Headers for environment creation.
         """
-
-        if 'source_environment_id' not in attributes:
-            return {}
-        return {'X-Contentful-Source-Environment': attributes['source_environment_id']}
+        pass
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
         """
         Attributes for environment creation.
         """
-
-        return {'name': attributes.get('name', None)}
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the environment.
         """
-
-        result = super(Environment, self).to_json()
-        result.update({
-            'name': self.name
-        })
-
-        return result
+        pass
 
     def content_types(self):
         """
@@ -79,8 +68,7 @@ class Environment(Resource):
             >>> space_content_types_proxy = environment.content_types()
             <EnvironmentContentTypesProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return EnvironmentContentTypesProxy(self._client, self.space.id, self.id)
+        pass
 
     def entries(self):
         """
@@ -96,8 +84,7 @@ class Environment(Resource):
             >>> environment_entries_proxy = environment.entries()
             <EnvironmentEntriesProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return EnvironmentEntriesProxy(self._client, self.space.id, self.id)
+        pass
 
     def assets(self):
         """
@@ -113,8 +100,7 @@ class Environment(Resource):
             >>> environment_assets_proxy = environment.assets()
             <EnvironmentAssetsProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return EnvironmentAssetsProxy(self._client, self.space.id, self.id)
+        pass
 
     def locales(self):
         """
@@ -130,8 +116,7 @@ class Environment(Resource):
             >>> environment_locales_proxy = environment.locales()
             <EnvironmentLocalesProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return EnvironmentLocalesProxy(self._client, self.space.id, self.id)
+        pass
 
     def ui_extensions(self):
         """
@@ -147,8 +132,7 @@ class Environment(Resource):
             >>> ui_extensions_proxy = environment.ui_extensions()
             <EnvironmentUIExtensionsProxy space_id="cfexampleapi" environment_id="master">
         """
-
-        return EnvironmentUIExtensionsProxy(self._client, self.space.id, self.id)
+        pass
 
     def __repr__(self):
         return "<Environment[{0}] id='{1}'>".format(

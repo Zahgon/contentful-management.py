@@ -25,7 +25,7 @@ class OrganizationUsersProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return User
+        pass
 
     def _url(self, resource_id=None, **kwargs):
-        return self._resource_class.base_url(None, resource_id=resource_id, organization_id=self.organization_id, **kwargs)
+        pass

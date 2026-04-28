@@ -21,4 +21,4 @@ class TagsProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Tag
+        pass

@@ -21,11 +21,10 @@ class SpaceRolesProxy(SpaceResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return RolesProxy
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates a role with given attributes.
         """
-
-        return super(SpaceRolesProxy, self).create(None, attributes)
+        pass

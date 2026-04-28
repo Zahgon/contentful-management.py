@@ -24,4 +24,4 @@ class EnvironmentsProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Environment
+        pass

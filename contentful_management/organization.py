@@ -32,8 +32,7 @@ class Organization(Resource):
         """
         Returns the URI for the organization.
         """
-
-        return "organizations"
+        pass
 
     def periodic_usages(self):
         """
@@ -49,8 +48,7 @@ class Organization(Resource):
             >>> organization_periodic_usages_proxy = organization.usage_periods()
             <OrganizationPeriodicUsagesProxy organization_id="cfexampleapi">
         """
-
-        return OrganizationPeriodicUsagesProxy(self._client, self.id)
+        pass
 
     def space_periodic_usages(self):
         """
@@ -66,8 +64,7 @@ class Organization(Resource):
             >>> space_periodic_usages_proxy = organization.space_usage_periods()
             <SpacePeriodicUsagesProxyorganization_id="cfexampleapi">
         """
-
-        return SpacePeriodicUsagesProxy(self._client, self.id)
+        pass
 
     def users(self):
         """
@@ -83,8 +80,7 @@ class Organization(Resource):
             >>> organization_users_proxy = organization.users()
             <OrganizationUsersProxy organization_id="cfexampleapi">
         """
-
-        return OrganizationUsersProxy(self._client, self.id)
+        pass
 
     def taxonomy_concepts(self):
         """
@@ -100,7 +96,7 @@ class Organization(Resource):
             >>> taxonomy_concepts_proxy = organization.taxonomy_concepts()
             <TaxonomyConceptsProxy organization_id="organization_id">
         """
-        return TaxonomyConceptsProxy(self._client, self.id)
+        pass
 
     def __repr__(self):
         return "<Organization[{0}] id='{1}'>".format(

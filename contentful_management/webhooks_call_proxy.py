@@ -22,7 +22,7 @@ class WebhooksCallProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return WebhookCall
+        pass
 
     def create(self, *args, **kwargs):
         """
@@ -39,11 +39,7 @@ class WebhooksCallProxy(ClientProxy):
         raise Exception("Not Supported")
 
     def _url(self, resource_id='', **kwargs):
-        return self._resource_class.base_url(
-            self.space_id,
-            self.webhook_id,
-            resource_id=resource_id
-        )
+        pass
 
     def __repr__(self):
         return "<{0} space_id='{1}' webhook_id='{2}'>".format(

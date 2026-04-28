@@ -28,45 +28,28 @@ class SpacesProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Space
+        pass
 
     def all(self, query=None, **kwargs):
         """
         Gets all spaces.
         """
-
-        return super(SpacesProxy, self).all(query=query)
+        pass
 
     def find(self, space_id, query=None, **kwargs):
         """
         Gets a space by ID.
         """
-
-        try:
-            self.space_id = space_id
-            return super(SpacesProxy, self).find(space_id, query=query)
-        finally:
-            self.space_id = None
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates a space with given attributes.
         """
-
-        if attributes is None:
-            attributes = {}
-        if 'default_locale' not in attributes:
-            attributes['default_locale'] = self.client.default_locale
-
-        return super(SpacesProxy, self).create(resource_id=None, attributes=attributes)
+        pass
 
     def delete(self, space_id):
         """
         Deletes a space by ID.
         """
-
-        try:
-            self.space_id = space_id
-            return super(SpacesProxy, self).delete(space_id)
-        finally:
-            self.space_id = None
+        pass

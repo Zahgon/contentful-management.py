@@ -27,10 +27,7 @@ class Upload(Resource):
         """
         Headers for upload creation.
         """
-
-        return {
-            'Content-Type': 'application/octet-stream'
-        }
+        pass
 
     def __repr__(self):
         return "<Upload id='{0}'>".format(

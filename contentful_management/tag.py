@@ -26,25 +26,13 @@ class Tag(Resource):
         """
         Deletes this tag.
         """
-        return self._client._delete(
-            self.__class__.base_url(
-                space_id=self.space.id,
-                resource_id=self.sys['id'],
-                environment_id=self._environment_id,
-            ),
-            headers=self._update_headers()
-        )
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the tag.
         """
-
-        result = super(Tag, self).to_json()
-        result.update({
-            'name': self.name
-        })
-        return result
+        pass
 
     def __repr__(self):
         return "<Tag id='{0}' name='{1}'>".format(

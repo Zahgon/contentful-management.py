@@ -42,47 +42,23 @@ class ContentTypeField(object):
         """
         Returns the JSON Representation of the content type field.
         """
-
-        result = {
-            'name': self.name,
-            'id': self._real_id(),
-            'type': self.type,
-            'localized': self.localized,
-            'omitted': self.omitted,
-            'required': self.required,
-            'disabled': self.disabled,
-            'validations': [v.to_json() for v in self.validations],
-        }
-
-        if hasattr(self, 'default_value'):
-            result['defaultValue'] = self.default_value
-
-        if self.type == 'Array':
-            result['items'] = self.items
-
-        if self.type == 'Link':
-            result['linkType'] = self.link_type
-
-        return result
+        pass
 
     def coerce(self, value):
         """
         Coerces the value to the proper type.
         """
-
-        return self._coercion.coerce(value)
+        pass
 
     def _get_coercion(self):
         """
         Gets the proper coercion type.
         """
-
-        return globals()["{0}Field".format(self.type)](self.items)
+        pass
 
     def _real_id(self):
         """Gets the real field ID."""
-
-        return self.raw['id']
+        pass
 
     def __repr__(self):
         return "<ContentTypeField[{0}] id='{1}' type='{2}'>".format(

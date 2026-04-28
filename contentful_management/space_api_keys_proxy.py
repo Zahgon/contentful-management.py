@@ -21,11 +21,10 @@ class SpaceApiKeysProxy(SpaceResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return ApiKeysProxy
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates an api key with given attributes.
         """
-
-        return super(SpaceApiKeysProxy, self).create(None, attributes)
+        pass

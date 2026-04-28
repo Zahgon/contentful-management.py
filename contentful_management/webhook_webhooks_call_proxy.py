@@ -21,4 +21,4 @@ class WebhookWebhooksCallProxy(WebhookResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return WebhooksCallProxy
+        pass

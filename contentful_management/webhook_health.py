@@ -30,15 +30,11 @@ class WebhookHealth(Resource):
         """
         Returns the URI for the webhook health.
         """
-
-        return "spaces/{0}/webhooks/{1}/health".format(
-            space_id,
-            webhook_id
-        )
+        pass
 
     @property
     def webhook_id(self):
-        return self.sys['created_by'].sys['id']
+        pass
 
     def __repr__(self):
         return "<WebhookHealth[{0}] total={1} healthy={2}>".format(

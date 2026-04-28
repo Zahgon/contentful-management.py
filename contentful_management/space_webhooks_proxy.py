@@ -21,11 +21,10 @@ class SpaceWebhooksProxy(SpaceResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return WebhooksProxy
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates a webhook with given attributes.
         """
-
-        return super(SpaceWebhooksProxy, self).create(None, attributes)
+        pass

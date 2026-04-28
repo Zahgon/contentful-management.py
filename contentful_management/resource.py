@@ -38,192 +38,92 @@ class Resource(object):
         """
         Returns the URI for the resource.
         """
-
-        url = "spaces/{0}".format(
-            space_id)
-
-        if environment_id is not None:
-            url = url = "{0}/environments/{1}".format(url, environment_id)
-
-        url = "{0}/{1}".format(
-            url,
-            base_path_for(klass.__name__)
-        )
-
-        if resource_id:
-            url = "{0}/{1}".format(url, resource_id)
-
-        return url
+        pass
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
         """
         Attributes for resource creation.
         """
-
-        result = {}
-
-        if previous_object is not None:
-            result = {k: v for k, v in previous_object.to_json().items() if k != 'sys'}
-
-        result.update(attributes)
-
-        return result
+        pass
 
     @classmethod
     def create_headers(klass, attributes):
         """
         Headers for resource creation.
         """
-
-        return {}
+        pass
 
     @classmethod
     def update_attributes_map(klass):
         """
         Defines keys and default values for non-generic attributes.
         """
-
-        return {}
+        pass
 
     def delete(self):
         """
         Deletes the resource.
         """
-
-        return self._client._delete(
-            self.__class__.base_url(
-                self.sys['space'].id,
-                self.sys['id'],
-                environment_id=self._environment_id
-            )
-        )
+        pass
 
     def update(self, attributes=None):
         """
         Updates the resource with attributes.
         """
-
-        if attributes is None:
-            attributes = {}
-
-        headers = self.__class__.create_headers(attributes)
-        headers.update(self._update_headers())
-
-        result = self._client._put(
-            self._update_url(),
-            self.__class__.create_attributes(attributes, self),
-            headers=headers
-        )
-
-        self._update_from_resource(result)
-
-        return self
+        pass
 
     def save(self):
         """
         Saves the current state of the resource.
         """
-
-        return self.update()
+        pass
 
     def reload(self, result=None):
         """
         Reloads the resource.
         """
-
-        if result is None:
-            result = self._client._get(
-                self.__class__.base_url(
-                    self.sys['space'].id,
-                    self.sys['id'],
-                    environment_id=self._environment_id
-                )
-            )
-
-        self._update_from_resource(result)
-
-        return self
+        pass
 
     def to_link(self):
         """
         Returns a link for the resource.
         """
-
-        link_type = self.link_type if self.type == 'Link' else self.type
-
-        return Link({'sys': {'linkType': link_type, 'id': self.sys.get('id')}}, client=self._client)
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the resource.
         """
-
-        result = {
-            'sys': {}
-        }
-        for k, v in self.sys.items():
-            if k in ['space', 'content_type', 'created_by',
-                     'updated_by', 'published_by', 'environment']:
-                v = v.to_json()
-            if k in ['created_at', 'updated_at', 'deleted_at',
-                     'first_published_at', 'published_at', 'expires_at']:
-                v = v.isoformat()
-            result['sys'][camel_case(k)] = v
-
-        return result
+        pass
 
     def _hydrate_sys(self, item):
-        sys = {}
-        for k, v in item['sys'].items():
-            if k in self._linkables():
-                v = self._build_link(v)
-            if k in self._dateables():
-                v = dateutil.parser.parse(v)
-            sys[snake_case(k)] = v
-        return sys
+        pass
 
     def _linkables(self):
-        return ['space', 'contentType', 'createdBy',
-                'updatedBy', 'publishedBy', 'environment']
+        pass
 
     def _dateables(self):
-        return ['createdAt', 'updatedAt', 'deletedAt',
-                'firstPublishedAt', 'publishedAt', 'expiresAt']
+        pass
 
     def _build_link(self, link):
-        return Link(link, client=self._client)
+        pass
 
     def _update_headers(self):
-        return {'x-contentful-version': str(self.sys['version'])}
+        pass
 
     def _update_url(self):
-        return self.__class__.base_url(
-                self.sys['space'].id,
-                self.sys['id'],
-                environment_id=self._environment_id
-            )
+        pass
 
     def _update_from_resource(self, other):
-        if hasattr(other, 'sys'):
-            self.sys = other.sys
-        for attr, default in self.__class__.update_attributes_map().items():
-            value = getattr(other, attr, default)
-            self_value = getattr(self, attr)
-            if value == default and value != self_value:
-                value = self_value
-            setattr(self, attr, value)
+        pass
 
     @property
     def _environment_id(self):
         """
         Returns the Environment ID.
         """
-        try:
-            return super(Resource, self)._environment_id
-        except AttributeError:
-            # In Resources which do not inherit EnvironmentAwareResource an AttributeError will happen
-            return None
+        pass
 
     def __getattr__(self, name, *args, **kwargs):
         if name in ['__getstate__', '__setstate__']:
@@ -250,42 +150,26 @@ class MetadataResource(Resource):
         self._metadata = self._hydrate_metadata(item)
 
     def _hydrate_metadata(self, item):
-        metadata = {}
-        if 'metadata' not in item:
-            return metadata
-        for k, v in item['metadata'].items():
-            if k == 'tags':
-                metadata[k] = self.coerce_tags(v)
-            elif k == 'concepts':
-                metadata[k] = self.coerce_concepts(v)
-            else:
-                metadata[k] = v
-        return metadata
+        pass
 
     def coerce_tags(self, tags):
         """
         Coerces tags to the proper type.
         """
-        return [self._build_link(tag) for tag in tags]
+        pass
 
     def coerce_concepts(self, concepts):
         """
         Coerces concepts to the proper type.
         """
-        return [self._build_link(concept) for concept in concepts]
+        pass
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
         """
         Attributes for resource creation.
         """
-
-        result = super(MetadataResource, klass).create_attributes(attributes, previous_object)
-
-        if '_metadata' in attributes:
-            result['metadata'] = attributes.pop('_metadata')
-
-        return result
+        pass
 
 
 class FieldsResource(Resource):
@@ -300,13 +184,7 @@ class FieldsResource(Resource):
         """
         Attributes for resource creation.
         """
-
-        if 'fields' not in attributes:
-            if previous_object is None:
-                attributes['fields'] = {}
-            else:
-                attributes['fields'] = previous_object.to_json()['fields']
-        return {'fields': attributes['fields']}
+        pass
 
     def __init__(self, item, **kwargs):
         super(FieldsResource, self).__init__(item, **kwargs)
@@ -318,81 +196,44 @@ class FieldsResource(Resource):
 
         :param locale: (optional) Locale to fetch, defaults to default_locale.
         """
-
-        if locale is None:
-            locale = self._locale()
-        return self._fields.get(locale, {})
+        pass
 
     def fields_with_locales(self):
         """
         Get fields with locales per field.
         """
-
-        result = {}
-        for locale, fields in self._fields.items():
-            for k, v in fields.items():
-                real_field_id = self._real_field_id_for(k)
-                if real_field_id not in result:
-                    result[real_field_id] = {}
-                result[real_field_id][locale] = self._serialize_value(v)
-        return result
+        pass
 
     def to_json(self):
         """
         Returns the JSON Representation of the resource.
         """
-
-        result = super(FieldsResource, self).to_json()
-        result['fields'] = self.fields_with_locales()
-        return result
+        pass
 
     @property
     def locale(self):
         """
         Returns the resource locale.
         """
-
-        return self.sys.get('locale', None)
+        pass
 
     def _real_field_id_for(self, field_id):
-        for raw_field_id in self.raw['fields'].keys():
-            if snake_case(raw_field_id) == field_id:
-                return raw_field_id
+        pass
 
     def _serialize_value(self, value):
-        if isinstance(value, Resource):
-            return value.to_link().to_json()
-        elif isinstance(value, list) and value:
-            if isinstance(value[0], Resource):
-                return [resource.to_link().to_json() for resource in value]
-        elif isinstance(value, datetime):
-            return value.isoformat()
-        return value
+        pass
 
     def _hydrate_fields(self, item):
-        fields = {}
-
-        if 'fields' not in item:
-            return fields
-
-        for k, locales in item['fields'].items():
-            for locale, v in locales.items():
-                if locale not in fields:
-                    fields[locale] = {}
-                fields[locale][snake_case(k)] = self._coerce(v)
-
-        return fields
+        pass
 
     def _coerce(self, value):
-        return value
+        pass
 
     def _locale(self):
-        return self.locale or self.__dict__['default_locale']
+        pass
 
     def _update_from_resource(self, other):
-        super(FieldsResource, self)._update_from_resource(other)
-        if hasattr(other, '_fields'):
-            self._fields = other._fields
+        pass
 
     def __getattr__(self, name, *args, **kwargs):
         if name in ['__getstate__', '__setstate__']:
@@ -421,8 +262,7 @@ class FieldsResource(Resource):
         making them not part of the serialization when sent back to
         the API for saving.
         """
-
-        return False
+        pass
 
 
 class PublishResource(object):
@@ -435,8 +275,7 @@ class PublishResource(object):
         """
         Checks if resource is published.
         """
-
-        return bool(self.sys.get('published_at', False))
+        pass
 
     @property
     def is_updated(self):
@@ -444,48 +283,19 @@ class PublishResource(object):
         Checks if a resource has been updated since last publish.
         Returns False if resource has not been published before.
         """
-
-        if not self.is_published:
-            return False
-
-        return sanitize_date(self.sys['published_at']) < sanitize_date(self.sys['updated_at'])
+        pass
 
     def publish(self):
         """
         Publishes the resource.
         """
-
-        result = self._client._put(
-            "{0}/published".format(
-                self.__class__.base_url(
-                    self.sys['space'].id,
-                    self.sys['id'],
-                    environment_id=self._environment_id
-                ),
-            ),
-            {},
-            headers=self._update_headers()
-        )
-
-        return self.reload(result)
+        pass
 
     def unpublish(self):
         """
         Unpublishes the resource.
         """
-
-        self._client._delete(
-            "{0}/published".format(
-                self.__class__.base_url(
-                    self.sys['space'].id,
-                    self.sys['id'],
-                    environment_id=self._environment_id
-                ),
-            ),
-            headers=self._update_headers()
-        )
-
-        return self.reload()
+        pass
 
 
 class ArchiveResource(object):
@@ -498,45 +308,19 @@ class ArchiveResource(object):
         """
         Checks if Resource is archived.
         """
-
-        return bool(self.sys.get('archived_version', False))
+        pass
 
     def archive(self):
         """
         Archives the resource.
         """
-
-        self._client._put(
-            "{0}/archived".format(
-                self.__class__.base_url(
-                    self.sys['space'].id,
-                    self.sys['id'],
-                    environment_id=self._environment_id
-                ),
-            ),
-            {},
-            headers=self._update_headers()
-        )
-
-        return self.reload()
+        pass
 
     def unarchive(self):
         """
         Unarchives the resource.
         """
-
-        self._client._delete(
-            "{0}/archived".format(
-                self.__class__.base_url(
-                    self.sys['space'].id,
-                    self.sys['id'],
-                    environment_id=self._environment_id
-                ),
-            ),
-            headers=self._update_headers()
-        )
-
-        return self.reload()
+        pass
 
 
 class EnvironmentAwareResource(object):
@@ -549,12 +333,7 @@ class EnvironmentAwareResource(object):
         """
         Returns the Environment ID.
         """
-
-        environment = self.sys.get('environment', None)
-
-        if environment is not None:
-            return environment.id
-        return 'master'
+        pass
 
 
 class Link(Resource):
@@ -568,30 +347,13 @@ class Link(Resource):
         """
         Resolves link to a specific resource.
         """
-
-        proxy_method = getattr(
-            self._client,
-            base_path_for(self.link_type)
-        )
-        if self.link_type == 'Space':
-            return proxy_method().find(self.id)
-        elif environment_id is not None:
-            return proxy_method(space_id, environment_id).find(self.id)
-        else:
-            return proxy_method(space_id).find(self.id)
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the link.
         """
-
-        return {
-            'sys': {
-                'type': 'Link',
-                'linkType': self.sys.get('link_type'),
-                'id': self.sys.get('id')
-            }
-        }
+        pass
 
     def __repr__(self):
         return "<Link[{0}] id='{1}'>".format(

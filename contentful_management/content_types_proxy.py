@@ -22,7 +22,7 @@ class ContentTypesProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return ContentType
+        pass
 
     def all_published(self):
         """
@@ -30,10 +30,7 @@ class ContentTypesProxy(ClientProxy):
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/activated-content-type-collection
         """
-
-        return self.client._get(
-            self._url(public=True)
-        )
+        pass
 
     def _url(self, resource_id='', **kwargs):
-        return self._resource_class.base_url(self.space_id, resource_id=resource_id, environment_id=self.environment_id, **kwargs)
+        pass

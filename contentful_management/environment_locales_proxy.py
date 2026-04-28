@@ -21,11 +21,10 @@ class EnvironmentLocalesProxy(EnvironmentResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return LocalesProxy
+        pass
 
     def create(self, attributes=None, **kwargs):
         """
         Creates a locale with given attributes.
         """
-
-        return super(EnvironmentLocalesProxy, self).create(None, attributes)
+        pass

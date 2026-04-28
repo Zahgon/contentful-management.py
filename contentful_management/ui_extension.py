@@ -26,66 +26,56 @@ class UIExtension(Resource, EnvironmentAwareResource):
 
     @property
     def source(self):
-        return self.extension.get('src', '') or self.extension.get('srcdoc', '')
+        pass
 
     @source.setter
     def source(self, value):
-        key = 'src' if value.startswith('http') else 'srcdoc'
-        self.extension[key] = value
+        pass
 
     @property
     def name(self):
-        return self.extension.get('name', '')
+        pass
 
     @name.setter
     def name(self, value):
-        self.extension['name'] = value
+        pass
 
     @property
     def field_types(self):
-        return self.extension.get('fieldTypes', [])
+        pass
 
     @field_types.setter
     def field_types(self, value):
-        self.extension['fieldTypes'] = value
+        pass
 
     @property
     def sidebar(self):
-        return self.extension.get('sidebar', False)
+        pass
 
     @sidebar.setter
     def sidebar(self, value):
-        self.extension['sidebar'] = value
+        pass
 
     @property
     def parameters(self):
-        return self.extension.get('parameters', {})
+        pass
 
     @parameters.setter
     def parameters(self, value):
-        self.extension['parameters'] = value
+        pass
 
     @classmethod
     def update_attributes_map(klass):
         """
         Defines keys and default values for non-generic attributes.
         """
-
-        return {
-            'extension': {}
-        }
+        pass
 
     def to_json(self):
         """
         Returns the JSON Representation of the UI extension.
         """
-
-        result = super(UIExtension, self).to_json()
-        result.update({
-            'extension': self.extension
-        })
-
-        return result
+        pass
 
     def __repr__(self):
         return "<UIExtension[{0}] id='{1}' field_types=[{2}]>".format(

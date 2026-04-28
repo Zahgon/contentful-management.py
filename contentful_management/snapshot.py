@@ -39,25 +39,13 @@ class Snapshot(Resource, EnvironmentAwareResource):
         """
         Returns the URI for the snapshot.
         """
-
-        return "spaces/{0}{1}/{2}/{3}/snapshots/{4}".format(
-            space_id,
-            '/environments/{0}'.format(environment_id) if environment_id is not None else '',
-            resource_url,
-            parent_resource_id,
-            resource_id if resource_id is not None else ''
-        )
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the snapshot.
         """
-
-        result = super(Snapshot, self).to_json()
-        result.update({
-            'snapshot': self.snapshot.to_json(),
-        })
-        return result
+        pass
 
     def __repr__(self):
         return "<Snapshot[{0}] id='{1}'>".format(

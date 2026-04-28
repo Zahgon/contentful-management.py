@@ -31,27 +31,13 @@ class Role(Resource):
         """
         Defines keys and default values for non-generic attributes.
         """
-
-        return {
-            'name': '',
-            'description': '',
-            'permissions': {},
-            'policies': []
-        }
+        pass
 
     def to_json(self):
         """
         Returns the JSON representation of the role.
         """
-
-        result = super(Role, self).to_json()
-        result.update({
-            'name': self.name,
-            'description': self.description,
-            'permissions': self.permissions,
-            'policies': self.policies
-        })
-        return result
+        pass
 
     def __repr__(self):
         return "<Role[{0}] id='{1}'>".format(

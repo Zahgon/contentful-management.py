@@ -18,7 +18,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 class PreviewApiKeysProxy(ClientProxy):
     @property
     def _resource_class(self):
-        return PreviewApiKey
+        pass
 
     def create(*args, **kwargs):
         """

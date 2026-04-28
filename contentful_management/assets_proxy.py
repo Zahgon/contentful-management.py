@@ -23,28 +23,16 @@ class AssetsProxy(ClientProxy):
 
     @property
     def _resource_class(self):
-        return Asset
+        pass
 
     def all(self, query=None, **kwargs):
         """
         Gets all assets of a space.
         """
-
-        if query is None:
-            query = {}
-
-        normalize_select(query)
-
-        return super(AssetsProxy, self).all(query, **kwargs)
+        pass
 
     def find(self, asset_id, query=None, **kwargs):
         """
         Gets a single asset by ID.
         """
-
-        if query is None:
-            query = {}
-
-        normalize_select(query)
-
-        return super(AssetsProxy, self).find(asset_id, query=query, **kwargs)
+        pass

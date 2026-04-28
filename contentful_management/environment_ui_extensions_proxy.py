@@ -21,4 +21,4 @@ class EnvironmentUIExtensionsProxy(EnvironmentResourceProxy):
     """
 
     def _resource_proxy_class(self):
-        return UIExtensionsProxy
+        pass
